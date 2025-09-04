@@ -1,13 +1,5 @@
-# Copiar a servers.yaml
-# Este archivo define los servidores MCP que se levanten con STDIO.
-
 servers:
   - id: fs
     command: npx
     args: ["-y", "@modelcontextprotocol/server-filesystem", "./workspace"]
     env: {}
-  # - id: github
-  #   command: npx
-  #   args: ["-y", "@modelcontextprotocol/server-github"]
-  #   env:
-  #     GITHUB_TOKEN: "${GITHUB_TOKEN}"   # exporta tu token antes de arrancar
