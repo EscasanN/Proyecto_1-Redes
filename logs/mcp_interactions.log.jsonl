@@ -1,1 +1,46 @@
 {"event": "initialize", "server": "fs", "mode": "sdk", "ts": 1757012133.2241955}
+{"event": "initialize_error", "server": "fs", "error": "Connection closed", "ts": 1757185369.7926843}
+{"event": "initialize_error", "server": "fs", "error": "Connection closed", "ts": 1757185633.0111609}
+{"event": "initialize", "server": "pkm", "mode": "sdk", "ts": 1757185633.0932424}
+{"event": "tools/list", "server": "pkm", "tools_count": 9, "ts": 1757185655.7577028}
+{"event": "tools/list", "server": "pkm", "tools_count": 9, "ts": 1757185690.299322}
+{"event": "tools/call", "server": "pkm", "tool": "search_names", "args": {"query": "charizard"}, "ts": 1757185738.9521723}
+{"event": "tools/error", "server": "pkm", "tool": "search_names", "error": "13 validation errors for CallToolResult\ncontent.0.TextContent.type\n  Input should be 'text' [type=literal_error, input_value='json', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncontent.0.TextContent.text\n  Field required [type=missing, input_value={'type': 'json', 'json': ...rd-gmax'], 'moves': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncontent.0.ImageContent.type\n  Input should be 'image' [type=literal_error, input_value='json', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncontent.0.ImageContent.data\n  Field required [type=missing, input_value={'type': 'json', 'json': ...rd-gmax'], 'moves': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncontent.0.ImageContent.mimeType\n  Field required [type=missing, input_value={'type': 'json', 'json': ...rd-gmax'], 'moves': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncontent.0.AudioContent.type\n  Input should be 'audio' [type=literal_error, input_value='json', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncontent.0.AudioContent.data\n  Field required [type=missing, input_value={'type': 'json', 'json': ...rd-gmax'], 'moves': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncontent.0.AudioContent.mimeType\n  Field required [type=missing, input_value={'type': 'json', 'json': ...rd-gmax'], 'moves': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncontent.0.ResourceLink.name\n  Field required [type=missing, input_value={'type': 'json', 'json': ...rd-gmax'], 'moves': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncontent.0.ResourceLink.uri\n  Field required [type=missing, input_value={'type': 'json', 'json': ...rd-gmax'], 'moves': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncontent.0.ResourceLink.type\n  Input should be 'resource_link' [type=literal_error, input_value='json', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncontent.0.EmbeddedResource.type\n  Input should be 'resource' [type=literal_error, input_value='json', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncontent.0.EmbeddedResource.resource\n  Field required [type=missing, input_value={'type': 'json', 'json': ...rd-gmax'], 'moves': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing", "ts": 1757185740.3052573}
+{"event": "initialize", "server": "fs", "mode": "sdk", "ts": 1757185818.2332997}
+{"event": "initialize", "server": "pkm", "mode": "sdk", "ts": 1757185818.311276}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757185825.091733}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757185832.9304492}
+{"event": "tools/call", "server": "fs", "tool": "write_file", "args": {"path": "./workspace/hola.txt", "content": "hola mundo"}, "ts": 1757185876.235274}
+{"event": "tools/response", "server": "fs", "tool": "write_file", "result": {"content": [{"type": "text", "text": "Successfully wrote to ./workspace/hola.txt", "annotations": null, "meta": null}]}, "ts": 1757185876.244695}
+{"event": "initialize_error", "server": "fs", "error": "'MCPClientManager' object has no attribute 'mode'", "ts": 1757198000.6602452}
+{"event": "initialize_error", "server": "pkm", "error": "'MCPClientManager' object has no attribute 'mode'", "ts": 1757198000.7514133}
+{"event": "initialize", "server": "fs", "ts": 1757198531.1082983}
+{"event": "initialize", "server": "pkm", "ts": 1757198531.1957407}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757198584.0479863}
+{"event": "tools/list", "server": "pkm", "tools_count": 9, "ts": 1757198584.0513067}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757198818.7024052}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757198856.9755867}
+{"event": "tools/call", "server": "fs", "tool": "read_text_file", "args": {"path": "./workspace/hola.txt"}, "ts": 1757198896.9874706}
+{"event": "tools/response", "server": "fs", "tool": "read_text_file", "result": {"content": [{"type": "text", "text": "hhola a todos", "annotations": null, "meta": null}]}, "ts": 1757198896.993472}
+{"event": "tools/call", "server": "fs", "tool": "read_text_file", "args": {"path": "./workspace/hola.txt"}, "ts": 1757198906.9639537}
+{"event": "tools/response", "server": "fs", "tool": "read_text_file", "result": {"content": [{"type": "text", "text": "hhola a todos", "annotations": null, "meta": null}]}, "ts": 1757198906.9671497}
+{"event": "initialize", "server": "fs", "ts": 1757198986.0988736}
+{"event": "initialize", "server": "pkm", "ts": 1757198986.1913333}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757199016.685844}
+{"event": "tools/list", "server": "pkm", "tools_count": 9, "ts": 1757199016.6907332}
+{"event": "tools/call", "server": "fs", "tool": "write_file", "args": {"path": "hola.md", "content": "Funcionamiento correcto"}, "ts": 1757199019.0340548}
+{"event": "tools/response", "server": "fs", "tool": "write_file", "result": {"content": [{"type": "text", "text": "Error: Access denied - path outside allowed directories: C:\\Users\\escal\\OneDrive\\Documents\\Uni\\redes\\Proyecto_1-Redes_ACTUALIZADO_ARREGLADO_v2\\Proyecto_1-Redes_ACTUALIZADO\\Proyecto_1-Redes\\hola.md not in C:\\Users\\escal\\OneDrive\\Documents\\Uni\\redes\\Proyecto_1-Redes_ACTUALIZADO_ARREGLADO_v2\\Proyecto_1-Redes_ACTUALIZADO\\Proyecto_1-Redes\\workspace", "annotations": null, "meta": null}]}, "ts": 1757199019.0373902}
+{"event": "tools/call", "server": "fs", "tool": "list_allowed_directories", "args": {}, "ts": 1757199021.9465022}
+{"event": "tools/response", "server": "fs", "tool": "list_allowed_directories", "result": {"content": [{"type": "text", "text": "Allowed directories:\nC:\\Users\\escal\\OneDrive\\Documents\\Uni\\redes\\Proyecto_1-Redes_ACTUALIZADO_ARREGLADO_v2\\Proyecto_1-Redes_ACTUALIZADO\\Proyecto_1-Redes\\workspace", "annotations": null, "meta": null}]}, "ts": 1757199021.9483218}
+{"event": "tools/call", "server": "fs", "tool": "write_file", "args": {"path": "workspace/hola.md", "content": "Funcionamiento correcto"}, "ts": 1757199022.8379934}
+{"event": "tools/response", "server": "fs", "tool": "write_file", "result": {"content": [{"type": "text", "text": "Successfully wrote to workspace/hola.md", "annotations": null, "meta": null}]}, "ts": 1757199022.8441806}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757199163.9447124}
+{"event": "initialize", "server": "fs", "ts": 1757199210.5809088}
+{"event": "initialize", "server": "pkm", "ts": 1757199210.6808221}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757199227.2982218}
+{"event": "tools/list", "server": "pkm", "tools_count": 9, "ts": 1757199227.3008788}
+{"event": "initialize", "server": "fs", "ts": 1757199328.834157}
+{"event": "initialize", "server": "pkm", "ts": 1757199328.93753}
+{"event": "tools/list", "server": "fs", "tools_count": 14, "ts": 1757199345.0071387}
+{"event": "tools/call", "server": "fs", "tool": "list_directory", "args": {}, "ts": 1757199359.5182078}
+{"event": "tools/response", "server": "fs", "tool": "list_directory", "result": {"content": [{"type": "text", "text": "Error: Invalid arguments for list_directory: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"string\",\n    \"received\": \"undefined\",\n    \"path\": [\n      \"path\"\n    ],\n    \"message\": \"Required\"\n  }\n]", "annotations": null, "meta": null}]}, "ts": 1757199359.5232835}

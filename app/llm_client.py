@@ -27,3 +27,14 @@ class LLMClient:
                 pass
             text = "\n".join(p for p in parts if p)
         return text or ""
+
+
+    def start(self, system_instruction: str | None = None):
+        """(Re)inicia el chat opcionalmente con un system_instruction."""
+        import google.generativeai as genai
+        if system_instruction:
+            self.model = genai.GenerativeModel(self.model.model_name if hasattr(self.model, "model_name") else "gemini-1.5-flash",
+                                               system_instruction=system_instruction)
+        self.chat = self.model.start_chat(history=[])
+        return self
+

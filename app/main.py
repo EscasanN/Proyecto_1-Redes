@@ -7,6 +7,7 @@ from rich.prompt import Prompt
 from .config import SERVERS_YAML, SERVERS_EXAMPLE, WORKSPACE_DIR, LOG_PATH
 from .llm_client import LLMClient
 from .mcp_client import MCPClientManager, ServerConfig
+from .agent import ToolUseAgent
 
 console = Console()
 
@@ -36,9 +37,14 @@ async def run_cli():
     servers = load_servers()
     mcp_mgr = MCPClientManager(servers)
     await mcp_mgr.start()
-    console.print(f"[cyan]Modo MCP:[/] {mcp_mgr.mode}")
+    agent = ToolUseAgent(llm, mcp_mgr, max_steps=25)
+    console.print(f"[cyan]MCP conectado.[/] Usa :tools para listar herramientas.")
 
-    console.print("\nEscribe texto para chatear con el LLM o comandos (':help').")
+    console.print("\nEscribe texto para chatear con el LLM (con uso de herramientas). Comandos disponibles:")
+    console.print(":help — ayuda")
+    console.print(":tools — listar herramientas conectadas")
+    console.print(":call <server> <tool> {json} — invocar manualmente")
+    console.print(":scenario — demo inciso 4 (fs + git)")
     while True:
         try:
             cmd = Prompt.ask("[bold magenta](mcp) ›[/]")
@@ -70,11 +76,8 @@ async def run_cli():
             continue
 
         if cmd.strip() == ":servers":
-            if mcp_mgr.mode == "sdk":
-                sids = list(mcp_mgr._sessions.keys())
-            else:
-                sids = ["fs","git"]
-            console.print(f"Servers: {', '.join(sids) or '(ninguno)'}")
+            sids = list(mcp_mgr._sessions.keys())
+            console.print(f"Servers: {', '.join(sids) if sids else '(ninguno)'}")
             continue
 
         if cmd.startswith(":tools"):
@@ -129,14 +132,17 @@ async def run_cli():
             continue
 
         if llm is None:
-            console.print("[yellow]LLM no configurado; ingresa comandos con ':'[/]")
+            console.print("[red]LLM no configurado; configura GOOGLE_API_KEY en .env[/]")
         else:
-            try:
-                ans = llm.ask(cmd)
-                console.print(f"[bold blue]Gemini:[/] {ans}")
-            except Exception as e:
-                console.print(f"[red]Error LLM:[/] {e}")
-
+            out = await agent.run(cmd)
+            console.print(f"[bold blue]Respuesta:[/] {out.get('final')}")
+            if out.get("trace"):
+                console.print("[dim]Herramientas utilizadas:[/]")
+                for t in out["trace"]:
+                    if t.get("type") == "call":
+                        console.print(f"  - {t['server_id']}::{t['name']} → ok")
+                    elif t.get("type") == "error":
+                        console.print(f"  - {t['server_id']}::{t['name']} → ERROR: {t.get('error')}")
     await mcp_mgr.close()
 
 def main():
